@@ -31,12 +31,12 @@ public class QuizAppGUI extends javax.swing.JFrame {
     
     //Improvement - method to reset the text based on the currentQ variable
     public void setQuestionText(int currentQuestion){
-        LabelQuestionCounter.setText("Question " + (currentQ + 1) + " of " + (Questions.size()));
-        TextAreaQuestionText.setText(Questions.get(currentQ).getQuestionText());
-        RadioButtonOption1.setText(Questions.get(currentQ).getOption1());
-        RadioButtonOption2.setText(Questions.get(currentQ).getOption2());
-        RadioButtonOption3.setText(Questions.get(currentQ).getOption3());
-        RadioButtonOption4.setText(Questions.get(currentQ).getOption4());
+        LabelQuestionCounter.setText("Question " + (currentQuestion + 1) + " of " + (Questions.size()));
+        TextAreaQuestionText.setText(Questions.get(currentQuestion).getQuestionText());
+        RadioButtonOption1.setText(Questions.get(currentQuestion).getOption1());
+        RadioButtonOption2.setText(Questions.get(currentQuestion).getOption2());
+        RadioButtonOption3.setText(Questions.get(currentQuestion).getOption3());
+        RadioButtonOption4.setText(Questions.get(currentQuestion).getOption4());
         
     }
 
