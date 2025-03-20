@@ -28,6 +28,17 @@ public class QuizAppGUI extends javax.swing.JFrame {
 
     //current question var to keep track of where we are
     static int currentQ = 0;
+    
+    //Improvement - method to reset the text based on the currentQ variable
+    public void setQuestionText(int currentQuestion){
+        LabelQuestionCounter.setText("Question " + (currentQ + 1) + " of " + (Questions.size()));
+        TextAreaQuestionText.setText(Questions.get(currentQ).getQuestionText());
+        RadioButtonOption1.setText(Questions.get(currentQ).getOption1());
+        RadioButtonOption2.setText(Questions.get(currentQ).getOption2());
+        RadioButtonOption3.setText(Questions.get(currentQ).getOption3());
+        RadioButtonOption4.setText(Questions.get(currentQ).getOption4());
+        
+    }
 
     public QuizAppGUI(String name, ArrayList<Question> QuestionList) {
         initComponents();
@@ -48,13 +59,7 @@ public class QuizAppGUI extends javax.swing.JFrame {
         LabelName.setText(name.toUpperCase(Locale.ITALY));
 
         //put the first question in 
-        LabelQuestionCounter.setText("Question " + (currentQ + 1) + " of " + (Questions.size()));
-        TextAreaQuestionText.setText(Questions.get(currentQ).getQuestionText());
-        RadioButtonOption1.setText(Questions.get(currentQ).getOption1());
-        RadioButtonOption2.setText(Questions.get(currentQ).getOption2());
-        RadioButtonOption3.setText(Questions.get(currentQ).getOption3());
-        RadioButtonOption4.setText(Questions.get(currentQ).getOption4());
-
+        setQuestionText(currentQ);
     }
 
     /**
@@ -284,12 +289,8 @@ public class QuizAppGUI extends javax.swing.JFrame {
                         }
                     }
                     //set text 
-                    LabelQuestionCounter.setText("Question " + (currentQ + 1) + " of " + (Questions.size()));
-                    TextAreaQuestionText.setText(Questions.get(currentQ).getQuestionText());
-                    RadioButtonOption1.setText(Questions.get(currentQ).getOption1());
-                    RadioButtonOption2.setText(Questions.get(currentQ).getOption2());
-                    RadioButtonOption3.setText(Questions.get(currentQ).getOption3());
-                    RadioButtonOption4.setText(Questions.get(currentQ).getOption4());
+                    setQuestionText(currentQ);
+                    
                 } catch (Exception e) {
                 }
 
@@ -311,13 +312,8 @@ public class QuizAppGUI extends javax.swing.JFrame {
                     currentQ -= 1;
 
                     //set text 
-                    LabelQuestionCounter.setText("Question " + (currentQ + 1) + " of " + (Questions.size()));
-                    TextAreaQuestionText.setText(Questions.get(currentQ).getQuestionText());
-                    RadioButtonOption1.setText(Questions.get(currentQ).getOption1());
-                    RadioButtonOption2.setText(Questions.get(currentQ).getOption2());
-                    RadioButtonOption3.setText(Questions.get(currentQ).getOption3());
-                    RadioButtonOption4.setText(Questions.get(currentQ).getOption4());
-
+                    setQuestionText(currentQ);
+                    
                     //if there's an answer selected we set it back to it and if not we clear it
                     if (!Questions.get(currentQ).isHasBeenAnswered()) {
 
